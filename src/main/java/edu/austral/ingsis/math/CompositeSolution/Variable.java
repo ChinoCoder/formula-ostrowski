@@ -13,7 +13,7 @@ public class Variable implements Function {
         this.value = value;
     }
     @Override
-    public long Resolution() {
+    public double Resolution() {
         return value;
     }
 

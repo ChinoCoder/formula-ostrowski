@@ -11,7 +11,7 @@ public class Module implements Function{
     }
 
     @Override
-    public long Resolution() {
+    public double Resolution() {
         return Math.abs(containedFunction.Resolution());
     }
 

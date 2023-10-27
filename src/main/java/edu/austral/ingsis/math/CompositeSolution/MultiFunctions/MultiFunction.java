@@ -2,6 +2,8 @@ package edu.austral.ingsis.math.CompositeSolution.MultiFunctions;
 
 import edu.austral.ingsis.math.CompositeSolution.Function;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class MultiFunction implements Function {
@@ -22,8 +24,15 @@ public abstract class MultiFunction implements Function {
     public List<String> listVariables() {
         List<String> leftList = left.listVariables();
         List<String> rightList = right.listVariables();
-        leftList.addAll(rightList);
-        return leftList;
+        if (!leftList.isEmpty()) {
+            if (!rightList.isEmpty()) {
+                List<String> list = new ArrayList<>(leftList);
+                list.addAll(rightList);
+                return list;
+            }
+            return leftList;
+        }
+        return rightList;
     }
     public Function getLeft() {
         return left;

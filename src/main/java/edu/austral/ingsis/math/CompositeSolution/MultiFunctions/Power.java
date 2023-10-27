@@ -8,8 +8,8 @@ public class Power extends MultiFunction{
     }
 
     @Override
-    public long Resolution() {
-        return getLeft().Resolution() ^ getRight().Resolution();
+    public double Resolution() {
+        return Math.pow(this.getLeft().Resolution(), this.getRight().Resolution());
     }
 
     @Override

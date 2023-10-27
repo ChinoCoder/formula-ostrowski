@@ -8,7 +8,7 @@ public class Division extends MultiFunction {
     }
 
     @Override
-    public long Resolution() {
+    public double Resolution() {
         return getLeft().Resolution() / getRight().Resolution();
     }
 

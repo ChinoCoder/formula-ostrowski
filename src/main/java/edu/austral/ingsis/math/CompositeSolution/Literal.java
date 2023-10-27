@@ -3,20 +3,22 @@ package edu.austral.ingsis.math.CompositeSolution;
 import java.util.List;
 
 public class Literal implements Function {
-    private final int value;
+    private final double value;
 
-    public Literal(int value){
+    public Literal(double value){
         this.value = value;
     }
 
     @Override
-    public long Resolution() {
+    public double Resolution() {
         return value;
     }
 
     @Override
     public String print() {
-        return Integer.toString(value);
+        if (value == (long) value)
+            return Integer.toString((int) value);
+        else return Double.toString(value);
     }
 
     @Override

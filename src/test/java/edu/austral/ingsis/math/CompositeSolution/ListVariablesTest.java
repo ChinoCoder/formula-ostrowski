@@ -1,5 +1,6 @@
 package edu.austral.ingsis.math.CompositeSolution;
 
+import edu.austral.ingsis.math.CompositeSolution.MultiFunctions.*;
 import org.junit.Test;
 
 import java.util.Collections;
@@ -17,7 +18,10 @@ public class ListVariablesTest {
      */
     @Test
     public void shouldListVariablesFunction1() {
-        final List<String> result = Collections.emptyList();
+        final Function f1 = new Literal(1);
+        final Function f2 = new Literal(6);
+        final Function f3 = new Sum(f1, f2);
+        final List<String> result = f3.listVariables();
 
         assertThat(result, empty());
     }
@@ -27,7 +31,10 @@ public class ListVariablesTest {
      */
     @Test
     public void shouldListVariablesFunction2() {
-        final List<String> result = Collections.emptyList();
+        final Function f1 = new Literal(12);
+        final Function f2 = new Variable("div", 4);
+        final Function f3 = new Division(f1, f2);
+        final List<String> result = f3.listVariables();
 
         assertThat(result, containsInAnyOrder("div"));
     }
@@ -37,7 +44,12 @@ public class ListVariablesTest {
      */
     @Test
     public void shouldListVariablesFunction3() {
-        final List<String> result = Collections.emptyList();
+        final Function f1 = new Literal(9);
+        final Function f2 = new Variable("x", 3);
+        final Function f3 = new Division(f1, f2);
+        final Function f4 = new Variable("y", 4);
+        final Function f5 = new Multiplication(f3, f4);
+        final List<String> result = f5.listVariables();
 
         assertThat(result, containsInAnyOrder("x", "y"));
     }
@@ -47,7 +59,12 @@ public class ListVariablesTest {
      */
     @Test
     public void shouldListVariablesFunction4() {
-        final List<String> result = Collections.emptyList();
+        final Function f1 = new Literal(27);
+        final Function f2 = new Variable("a", 9);
+        final Function f3 = new Division(f1, f2);
+        final Function f4 = new Variable("b", 3);
+        final Function f5 = new Power(f3, f4);
+        final List<String> result = f5.listVariables();
 
         assertThat(result, containsInAnyOrder("a", "b"));
     }
@@ -57,7 +74,10 @@ public class ListVariablesTest {
      */
     @Test
     public void shouldListVariablesFunction5() {
-        final List<String> result = Collections.emptyList();
+        final Function f1 = new Variable("z", 36);
+        final Function f2 = new Literal(0.5);
+        final Function f3 = new Power(f1, f2);
+        final List<String> result = f3.listVariables();
 
         assertThat(result, containsInAnyOrder("z"));
     }
@@ -67,7 +87,11 @@ public class ListVariablesTest {
      */
     @Test
     public void shouldListVariablesFunction6() {
-        final List<String> result = Collections.emptyList();
+        final Function f1 = new Variable("value", 8);
+        final Function f2 = new Module(f1);
+        final Function f3 = new Literal(8);
+        final Function f4 = new Substraction(f2, f3);
+        final List<String> result = f4.listVariables();
 
         assertThat(result, containsInAnyOrder("value"));
     }
@@ -77,7 +101,11 @@ public class ListVariablesTest {
      */
     @Test
     public void shouldListVariablesFunction7() {
-        final List<String> result = Collections.emptyList();
+        final Function f1 = new Variable("value", 8);
+        final Function f2 = new Module(f1);
+        final Function f3 = new Literal(8);
+        final Function f4 = new Substraction(f2, f3);
+        final List<String> result = f4.listVariables();
 
         assertThat(result, containsInAnyOrder("value"));
     }
@@ -87,7 +115,11 @@ public class ListVariablesTest {
      */
     @Test
     public void shouldListVariablesFunction8() {
-        final List<String> result = Collections.emptyList();
+        final Function f1 = new Literal(5);
+        final Function f2 = new Variable("i", 2);
+        final Function f3 = new Substraction(f1, f2);
+        final Function f4 = new Literal(8);
+        final List<String> result = f3.listVariables();
 
         assertThat(result, containsInAnyOrder("i"));
     }
